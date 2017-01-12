@@ -1,0 +1,113 @@
+{% load staticfiles %}
+{% load static %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script type="text/javascript" src="{% static 'Baegame/js/jquery.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'Baegame/css/bootstrap.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'Baegame/css/font-awesome.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'Baegame/css/bae.css' %}" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>BAE Game</title>
+</head>
+
+<body>
+<script type="text/javascript">
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '2188495621375571',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<div class="container game-wrapper">
+<div id="maingame">
+<div id="check"></div>
+    <div id="check2"></div>
+<p id="welcome_message" class="text-center text-uppercase">
+This is Testing of BAE game
+</p>
+<p id="round_message" class="text-center" >
+This is a game to know how Healthy your relationship is with BAE<br />
+Now a little about you
+</p>
+
+<div id="q_area" class="question_area">
+<button class="btn btn-default" id="start_btn" style="margin:0 auto;">Start</button>
+</div>
+<div id="questions">
+<div id="first">Would you rather do self medication than pay a visit to Doctor<br />
+<div id="options">
+
+ <form action="" onsubmit="return false;" id="question01">
+  <input type="radio" name="question01" value="Yes"> Yes<br>
+  <input type="radio" name="question01" value="No" > No<br>
+
+<button class="btn btn-default" type="submit" id="next01">Next</button>
+
+</form>
+
+</div></div>
+<div id="second">Would you still insist on having red meat over a healthier fish alternative <br />
+<div id="options">
+
+ <form action="" onsubmit="return false;" id="question02">
+  <input type="radio" name="question02" value="Yes"> Yes<br>
+  <input type="radio" name="question02" value="No" > No<br>
+
+<button class="btn btn-default" type="submit" id="next02">Next</button>
+
+</form>
+
+</div></div>
+
+    <div id="third">Bae <br />
+<div id="options">
+
+ <form action="" onsubmit="return false;" id="question03">
+     {% csrf_token %}
+  <input type="radio" name="question03" value="Yes"> Yes<br>
+  <input type="radio" name="question03" value="No" > No<br>
+
+<button class="btn btn-default" type="submit" id="next03">Next</button>
+
+</form>
+
+</div></div>
+
+
+</div>
+
+
+</div>
+    <div id="fourth">
+
+<form action="." id="finalform" method="post">
+    {% csrf_token %}
+<input id="id_ans01" name="ans01" type="hidden"   />
+    <input id="id_ans02" name="ans02" type="hidden"  />
+    <input id="id_ans03" name="ans03" type="hidden"  />
+<input type="submit" value="Submit">
+
+</form>
+    </div>
+
+</div>
+
+
+<script type="text/javascript" src="{% static 'Baegame/js/bae.js' %}"></script>
+
+
+</body>
+</html>
