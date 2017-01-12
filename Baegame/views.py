@@ -31,12 +31,10 @@ from django.template import Context
 from django.template.loader import get_template
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_protect
-from registration import signals
 from django.contrib.auth import authenticate, login
 import datetime
 from django_modalview.generic.edit import ModalFormView
 from django_modalview.generic.component import ModalResponse
-import tweepy
 import random
 
 class HomeViews(View):
