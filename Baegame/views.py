@@ -33,8 +33,6 @@ from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import authenticate, login
 import datetime
-from django_modalview.generic.edit import ModalFormView
-from django_modalview.generic.component import ModalResponse
 import random
 
 class HomeViews(View):
