@@ -1,13 +1,27 @@
 // JavaScript Document
 
+var server_url = "https://safe-everglades-62394.herokuapp.com/game/";
+var appId = '2188495621375571';
+var appNamespace = 'baegame';
+var appCenterURL = '//www.facebook.com/appcenter/' + appNamespace;
 
 $(document).ready(function() {
 	$("#maingame").fadeIn(3000);
 	$("#welcome_message").fadeIn(3000);
 	$("#round_message").fadeIn(4000);
 	$("#questions").fadeIn(1000);
+
+
+
+    FB.init({
+        appId: appId,
+        frictionlessRequests: true,
+        status: true,
+        version: 'v2.8'
+    });
 	
 });
+
 var q_area = document.getElementById("questions");
 var startbtn = document.getElementById("start_btn");
 var option = document.getElementById("options");
