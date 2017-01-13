@@ -6,10 +6,12 @@ var appNamespace = 'baegame';
 var appCenterURL = '//www.facebook.com/appcenter/' + appNamespace;
 
 $(document).ready(function() {
-	$("#maingame").fadeIn(3000);
+    $("#maingame").fadeIn(3000);
 	$("#welcome_message").fadeIn(3000);
 	$("#round_message").fadeIn(4000);
 	$("#questions").fadeIn(1000);
+
+    $( document ).on( 'click', 'header button.share', onShare );
 
 
 
@@ -19,6 +21,33 @@ $(document).ready(function() {
         status: true,
         version: 'v2.8'
     });
+
+     /*
+  Reports that the page is now usable by the user, for collecting performance
+  metrics.
+  https://developers.facebook.com/docs/reference/javascript/FB.Canvas.setDoneLoading
+  */
+  FB.Canvas.setDoneLoading();
+
+  /*
+  Registers the callback for inline processing of user actions
+  https://developers.facebook.com/docs/reference/javascript/FB.Canvas.setUrlHandler
+  */
+  FB.Canvas.setUrlHandler( urlHandler );
+
+  // initialize Parse
+  Parse.initialize(parseAppID, parseJSKey);
+
+  /*
+  Checking the authentication status is an asynchronous process which will
+  start as soon as the SDK has been initialized and will fire the two events
+  auth.authResponseChange and auth.statusChange upon completion.
+
+  By subscribing to these events, we can control what happens next in the
+  initialization process.
+  */
+  FB.Event.subscribe('auth.authResponseChange', onAuthResponseChange);
+  FB.Event.subscribe('auth.statusChange', onStatusChange);
 	
 });
 
