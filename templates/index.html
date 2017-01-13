@@ -22,9 +22,16 @@
     <div id="fb-root"></div>
 <header>
       <div class="container">
-        <button class="image share"></button>
+        <button class="image share">share</button>
       </div>
 </header>
+
+     <div id="menu">
+          <button class="image play">play</button>
+          <button class="image challenge">invite</button>
+          <button class="image leaderboard"></button>
+          <button class="image store"></button>
+        </div>
 <div class="container game-wrapper">
 <div id="maingame">
 <div id="check"></div>
@@ -98,7 +105,35 @@ Now a little about you
     </div>
 
 </div>
-
+      <!-- Friends -->
+      <div class="panel right hidden friends" id="friendselector">
+        <div class="nofriends">
+          <p>Friend Smash! is better with friends! Click here to see a list of friends to challenge.</p>
+          <button class="friendPermissions">Grant user_friends</button>
+        </div>
+        <div class="friends">
+          <h1>Challenge friends</h1>
+          <div class="tabs">
+            <button class="friends">Request</button>
+            <button class="invitable_friends">Invite</button>
+          </div>
+          <ul class="scrollable_list friendselector friends">
+            <li class="loading">Loading...</li>
+            <li class="template">
+              <span class="name">...</span>
+            </li>
+          </ul>
+          <ul class="scrollable_list friendselector invitable_friends">
+            <li class="loading">Loading...</li>
+            <li class="template">
+              <span class="name">...</span>
+            </li>
+          </ul>
+          <div class="buttons">
+            <button class="image challenge send" disabled="disabled"></button>
+          </div>
+        </div>
+      </div>
 <script type="text/javascript" src="{% static 'Baegame/js/ui.js' %}"></script>
 <script type="text/javascript" src="{% static 'Baegame/js/bae.js' %}"></script>
   <script type="text/javascript" src="{% static 'Baegame/js/login.js' %}"></script>

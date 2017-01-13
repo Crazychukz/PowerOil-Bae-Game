@@ -10,7 +10,22 @@ $(document).ready(function() {
 	$("#welcome_message").fadeIn(3000);
 	$("#round_message").fadeIn(4000);
 	$("#questions").fadeIn(1000);
-
+    $( document ).on( 'click', '#welcome .buybomb', onBuyBomb );
+    $( document ).on( 'click', '#menu button.play', onPlay );
+    $( document ).on( 'click', '#menu button.challenge', onChallenge );
+    $( document ).on( 'click', '#menu button.leaderboard', onLeaderboard );
+    $( document ).on( 'click', '#menu button.store', onStore );
+    $( document ).on( 'click', '.leaderboard .item', onLeaderboardItemClick );
+    $( document ).on( 'click', '.store .item .buy', onStoreItemBuyClick );
+    $( document ).on( 'click', '.store .item .gift', onStoreItemGiftClick );
+    $( document ).on( 'click', '.friendselector .item', onChallengeItemClick );
+    $( document ).on( 'click', '#friendselector button.challenge.send', onChallengeSend );
+    $( document ).on( 'click', '#friendselector button.invitable_friends', onChallengeShowInvitableFriends );
+    $( document ).on( 'click', '#friendselector button.friends', onChallengeShowFriends );
+    $( document ).on( 'click', '#gameover button.challenge', onGameOverChallenge );
+    $( document ).on( 'click', '#gameover button.brag', onGameOverBrag );
+    $( document ).on( 'click', '#gameover button.share_action', onGameOverShareAction );
+    $( document ).on( 'click', '#gameover button.close', onGameOverClose );
     $( document ).on( 'click', 'header button.share', onShare );
 
 
