@@ -225,27 +225,14 @@ this:
 Both of these endpoints require the user_friends permission.
 */
 function onChallenge() {
-  if( !hasPermission('user_friends') ) {
-    /*
-    Invoke the sendChallenge method when the new Challenge button has been
-    clicked.
-    */
-    sendChallenge();
-  }
-  else {
-    getFriends(function(){
-      /*
-      show our new custom friend selector if the user_friends permission has
-      been granted.
-      */
-      getInvitableFriends(function(){
-        renderFriends();
-        renderInvitableFriends();
-        $('#home').find('.panel.right').addClass('hidden');
-        $('#friendselector').removeClass('hidden');
-      });
-    });
-  }
+    FB.ui({method: 'apprequests',
+    message: 'YOUR_MESSAGE_HERE'
+   }, function(response){
+  console.log(response);
+   });
+  
+
+
 }
 
 /*
