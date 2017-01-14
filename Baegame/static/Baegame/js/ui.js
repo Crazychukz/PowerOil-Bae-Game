@@ -228,7 +228,9 @@ function onChallenge() {
   FB.ui({method: 'apprequests',
   message: 'YOUR_MESSAGE_HERE'
 }, function(response){
-    
+    var cahallengerId = response.request;
+    var baeId = response.to;
+    $('<p>You picked up a' + cahallengerId + baeId + '</p>').insertBefore("#check").fadeIn(1000);
 
   console.log(response);
 });
