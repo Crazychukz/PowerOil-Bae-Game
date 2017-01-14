@@ -12,7 +12,7 @@ $(document).ready(function() {
 	$("#questions").fadeIn(1000);
     $( document ).on( 'click', '#welcome .buybomb', onBuyBomb );
     $( document ).on( 'click', '#menu button.play', onPlay );
-    $( document ).on( 'click', '#menu button.challenge', onChallenge );
+    $( document ).on( 'click', '#menu button.challenge', onGameOverChallenge );
     $( document ).on( 'click', '#menu button.leaderboard', onLeaderboard );
     $( document ).on( 'click', '#menu button.store', onStore );
     $( document ).on( 'click', '.leaderboard .item', onLeaderboardItemClick );
