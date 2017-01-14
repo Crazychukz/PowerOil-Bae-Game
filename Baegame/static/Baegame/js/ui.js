@@ -225,13 +225,15 @@ this:
 Both of these endpoints require the user_friends permission.
 */
 function onChallenge() {
-    FB.ui({method: 'apprequests',
-    message: 'YOUR_MESSAGE_HERE'
-   }, function(response){
-  console.log(response);
-   });
-  
+  FB.ui({method: 'apprequests',
+  message: 'YOUR_MESSAGE_HERE'
+}, function(response){
+    var cahallengerId = response.request;
+    var baeId = response.to;
+    $('<p>You picked up a' + Answer01 + '' + cahallengerId + baeId + '</p>').insertBefore("#check").fadeIn(1000);
 
+  console.log(response);
+});
 
 }
 

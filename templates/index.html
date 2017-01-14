@@ -7,6 +7,7 @@
 
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//connect.facebook.net/en_US/sdk.js"></script>
+    <script type="text/javascript" src="{% static 'Baegame/js/login.js' %}"></script>
 
 
 
@@ -36,6 +37,7 @@
 <div id="maingame">
 <div id="check"></div>
     <div id="check2"></div>
+    <div id="check4"></div>
 <p id="welcome_message" class="text-center text-uppercase">
 This is Testing of BAE game
 </p>
@@ -134,9 +136,25 @@ Now a little about you
           </div>
         </div>
       </div>
+    <section id="gameover" class="hidden">
+      <h1>Game Over!</h1>
+      <div class="stats">
+        <p>You smashed <span class="name">...</span> <span class="score">...</span> times and collected <span class="coins">...</span> <span class="coins_plurality">coins</span>!</p>
+      </div>
+      <div class="buttons">
+        <button class="image challenge"></button>
+      </div>
+      <div class="share_composer">
+        <textarea placeholder="Say something about your game"></textarea>
+        <div class="buttons">
+          <button class="image close"></button>
+          <button class="image share_action"></button>
+        </div>
+      </div>
+    </section>
 <script type="text/javascript" src="{% static 'Baegame/js/ui.js' %}"></script>
 <script type="text/javascript" src="{% static 'Baegame/js/bae.js' %}"></script>
-  <script type="text/javascript" src="{% static 'Baegame/js/login.js' %}"></script>
+
 <script type="text/javascript" src="{% static 'Baegame/js/sharing.js' %}"></script>
 <script type="text/javascript" src="{% static 'Baegame/js/requests.js' %}"></script>
 
