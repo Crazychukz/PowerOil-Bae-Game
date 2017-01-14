@@ -6,6 +6,7 @@ var appNamespace = 'baegame';
 var appCenterURL = '//www.facebook.com/appcenter/' + appNamespace;
 
 $(document).ready(function() {
+
     $("#maingame").fadeIn(3000);
 	$("#welcome_message").fadeIn(3000);
 	$("#round_message").fadeIn(4000);
@@ -86,12 +87,12 @@ startbtn.addEventListener("click" , function(){
 		startGame.send();
 		startbtn.classList.add("hide");
 		});
-function renderHTML(data){
+   function renderHTML(data){
 	$("#first").fadeIn(3000);
 	option.style.display = 'block';
 	var question = data[0].question;
-		
-				
+
+
 }
 // second
 $("#question01").submit( function(){
