@@ -23,64 +23,10 @@
 <div id="status"></div>
     <div id="fb-root"></div>
    <script>
+function doLogin(){
 
-  window.fbAsyncInit = function() {
+}
 
-      FB.init({
-        appId      : '2188495621375571', // App ID
-        status     : true, // check login status
-        cookie     : true, // enable cookies to allow the server to access the session
-        oauth      : true,
-        xfbml      : true  // parse XFBML
-      });
-
-    FB.login(function (response) {
-
-            if (response.status === "connected") {
-
-                        var uID = response.authResponse.userID;
-
-                        console.log(uID);
-
-                      FB.api('/me', function (response) {
-
-                             var name = response.name;
-                             var locationName = ' ';
-
-                             if (response.location) {
-
-                                locationName = response.location.name;
-                                console.log(locationName);
-
-                            } else {
-
-                                alert("your current city needs to be set in your Facebook 'about' section. Please make it public for our use");
-
-                            }
-                       });//closes fb.api
-
-                    } else if (response.status === "not_authorized") {
-
-                        //authCancelled. redirect
-                    }
-                },
-                {
-                    scope: 'user_location,user_likes'
-                }
-            );
-
-
-      };//closes window.fbAsynInit
-
-    // Load the SDK asynchronously
-
-      (function(d){
-       var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement('script'); js.id = id; js.async = true;
-       js.src = "//connect.facebook.net/en_US/all.js";
-       ref.parentNode.insertBefore(js, ref);
-      }(document));
 
      </script>
 
