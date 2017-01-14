@@ -98,56 +98,22 @@ function showConfirmationPopup(message,callback) {
 */
 function onPlay() {
   // Player hasn't granted user_friends and hasn't been re-asked this session
-  if( !hasPermission('user_friends')
-    && !friendCache.reRequests['user_friends'] ) {
-
-    showConfirmationPopup('Wanna play with friends?', function(response){
-
-      // Record that user has been re-asked this session
-      friendCache.reRequests['user_friends'] = true;
-
-      if( response == CONFIRM_YES ) {
-        // Ask for permisisons again, check if granted,
-        // refresh permissions, get friends,
-        // try playing again
-        reRequest('user_friends', function(){
-          getPermissions(function(){
-            getFriends(function(){
-              onPlay();
-            });
-          });
-        });
-      } else {
-        // User said no, try playing again
-        onPlay();
-      }
-    });
+  FB.getLoginStatus(function(response) {
+  if (response.status === 'connected') {
+    // the user is logged in and has authenticated your
+    // app, and response.authResponse supplies
+    // the user's ID, a valid access token, a signed
+    // request, and the time the access token
+    // and signed request each expire
+    var uid = response.authResponse.userID;
+    var accessToken = response.authResponse.accessToken;
+  } else if (response.status === 'not_authorized') {
+    // the user is logged in to Facebook,
+    // but has not authenticated your app
   } else {
-
-    // Player has friend permissions, or hasn't granted it
-    // Either way, play against a friend if there are friends, otherwise play against a celebrity
-    var challenger = {};
-    var player = {
-      bombs: Parse.User.current().get('bombs')
-    };
-    if( friendCache.friends.length > 0 ) {
-      var randomFriend = Math.floor(getRandom(0, friendCache.friends.length));
-      challenger = {
-        id: friendCache.friends[randomFriend].id.toString(),
-        picture: friendCache.friends[randomFriend].picture.data.url,
-        name: friendCache.friends[randomFriend].first_name
-      };
-    } else {
-      var nCelebToSpawn = Math.floor(getRandom(0, celebs.length));
-      challenger = {
-        picture: celebs[nCelebToSpawn].picture,
-        name: celebs[nCelebToSpawn].name
-      };
-    }
-    showStage();
-    updateChallenger(challenger);
-    initGame(player, challenger, $('#canvas'), updateGameStats, onGameEnd);
+    // the user isn't logged in to Facebook.
   }
+ });
 }
 
 /*
