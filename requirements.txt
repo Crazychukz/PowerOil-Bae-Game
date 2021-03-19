@@ -3,7 +3,7 @@ dj-database-url==0.4.1
 django==1.10
 django-allauth==0.27.0
 django-braces==1.10.0
-djangorestframework==3.4.7
+djangorestframework==3.11.2
 gunicorn==19.6.0
 oauthlib==2.0.0
 python3-openid==3.0.10
